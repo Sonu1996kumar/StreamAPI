@@ -2,7 +2,10 @@ package work;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Methods {
@@ -80,13 +83,28 @@ public class Methods {
 //        List<String> newData = name.stream().sorted().collect(Collectors.toList());
 //        System.out.println(newData);
 
-        List<Integer> name = Arrays.asList(15,3,60,70,90);
-        List<Integer> newData = name.stream().sorted().collect(Collectors.toList());
-        System.out.println(newData);
+//        List<Integer> name = Arrays.asList(15,3,60,70,90);
+//        List<Integer> newData = name.stream().sorted().collect(Collectors.toList());
+//        System.out.println(newData);
+//
+//        List<Integer> num = Arrays.asList(15,3,60,100,1,15,100,60);
+//        List<Integer> rdnum = num.stream().distinct().collect(Collectors.toList());
+//        System.out.println(rdnum);
 
-        List<Integer> num = Arrays.asList(15,3,60,100,1,15,100,60);
-        List<Integer> rdnum = num.stream().distinct().collect(Collectors.toList());
-        System.out.println(rdnum);
+        //Consumer: it takes input but not producing any output
+        Consumer<Integer> res = number-> System.out.println(number);
+        res.accept(100);
+
+        List<String> naam = Arrays.asList("mike","smith","hari","kaushal","aashif");
+        Consumer<String> value = v-> System.out.println(v);
+        naam.forEach(value);//naam is suply to v not to value
+
+        //suplier:- gernerate something
+        System.out.println(new Random().nextInt(100));
+
+        Supplier<Integer> x = ()->new Random().nextInt(500);
+        Integer y = x.get();
+
 
 
 
